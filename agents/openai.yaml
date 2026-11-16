@@ -1,0 +1,4 @@
+interface:
+  display_name: "Diretor de Imagem"
+  short_description: "Entrevista, monta a direção de cena e escreve prompts de imagem por tomada"
+  default_prompt: "Use $diretor-de-imagem para dirigir uma sessão de fotos com IA."
