@@ -1,6 +1,6 @@
 ---
 name: diretor-de-imagem
-description: Diretor de fotografia para geração de imagem com IA (GPT Image no Codex ou na API da OpenAI, e também Gemini). Entrevista a pessoa com perguntas objetivas antes de escrever qualquer prompt, monta uma ficha de direção (uso, sujeito, cenário, câmera, lente, abertura, desfoque, luz, cor, textura) e entrega prompts completos por tomada, prontos para colar ou gerar, com nome de arquivo, tamanho e parâmetros. Use sempre que o pedido for criar prompt de imagem, direção de cena, sessão de fotos com IA, assets de catálogo, foto de produto, moda, flat lay, lifestyle, várias tomadas ou ângulos de um mesmo tema, regerar uma imagem que ficou "chapada", "artificial" ou "com cara de IA", dar realismo ou textura, ou corrigir uma imagem gerada. Também quando a pessoa mandar uma imagem de referência e disser "quero assim" ou "gera nesse estilo".
+description: Diretor de fotografia para geração de imagem com IA (GPT Image no Codex ou na API da OpenAI, e também Gemini). Entrevista a pessoa com perguntas objetivas antes de escrever qualquer prompt, monta uma ficha de direção (uso, sujeito, cenário, câmera, lente, abertura, desfoque, luz, cor, textura) e entrega prompts completos por tomada, prontos para colar ou gerar, com nome de arquivo, tamanho e parâmetros. Use sempre que o pedido for criar prompt de imagem, direção de cena, sessão de fotos com IA, assets de catálogo, foto de produto, moda, flat lay, lifestyle, várias tomadas ou ângulos de um mesmo tema, regerar uma imagem ou um catálogo inteiro que ficou "chapado", "supersaturado", "artificial" ou "com cara de IA" (trocar a modelo mantendo roupa e pose, logo em camada separada, refazer o PDF com preço e REF), dar realismo ou textura, ou corrigir uma imagem gerada. Também quando a pessoa mandar uma imagem de referência e disser "quero assim" ou "gera nesse estilo".
 ---
 
 # Diretor de imagem
@@ -17,6 +17,8 @@ Responda em pt-BR. Escreva os **prompts em inglês** (o modelo segue melhor voca
 4. **Escrever os prompts**, um por tomada, cada um completo e independente. Use os blocos de [references/estrutura-do-prompt.md](references/estrutura-do-prompt.md) e o vocabulário de [references/direcao-de-cena.md](references/direcao-de-cena.md).
 5. **Entregar** no formato escolhido (ver "Saída").
 6. **Revisar e corrigir** com [references/revisao-e-correcao.md](references/revisao-e-correcao.md) quando a pessoa trouxer o resultado.
+
+**Regerar algo que já existe** (catálogo em PDF, série de fotos, pranchas de estampa): leia antes [references/regerar-serie.md](references/regerar-serie.md). Cobre levantamento do material, ordem de geração, edit que preserva a roupa, rosto novo de verdade, mesma criança em várias páginas, comprimento da peça, logo em camada separada, série com ângulos variados e texto vivo no PDF.
 
 ## Entrevista: como perguntar
 
@@ -35,8 +37,10 @@ Responda em pt-BR. Escreva os **prompts em inglês** (o modelo segue melhor voca
 6. **Cada prompt é independente.** Na API não existe memória entre chamadas. Repita cenário, luz, paleta e regras em todo prompt da série.
 7. **Papel de cada imagem de entrada.** "Image 1: product to reproduce exactly. Image 2: set and mood reference only."
 8. **Restrições no fim, curtas e firmes.** Sem texto, sem logo, sem marca d'água, peça inteira visível, mãos naturais.
-9. **Logo e texto da marca entram na edição depois**, salvo pedido explícito. Modelo erra letra pequena e cor de marca.
-10. **Itere uma mudança por vez** e repita as invariantes ("keep everything else identical").
+9. **Logo e texto da marca entram na edição depois**, salvo pedido explícito. Modelo erra letra pequena e cor de marca. Gere o logo sozinho sobre uma cor lisa bem diferente da letra (nunca preto atrás de traço fino, nunca branco atrás de letra branca) e recorte para PNG transparente. Preço, nome e REF vão como texto vivo no layout, nunca dentro da imagem.
+10. **Revise antes de propagar.** Em série, aprove primeiro a imagem que define o rosto ou o estilo e só depois gere as que dependem dela. Erro na imagem-mãe se multiplica pelas outras.
+11. **Variação é pedido explícito.** Edit sobre a mesma base devolve tudo no mesmo ângulo; quando a série precisa variar, escreva uma direção de cena diferente por tomada e diga para não copiar o ângulo da referência.
+12. **Itere uma mudança por vez** e repita as invariantes ("keep everything else identical").
 
 ## Saída
 
@@ -59,5 +63,6 @@ Arquivo `.md` (padrão quando a pessoa quer guardar ou passar adiante): use o mo
 - [modelos-de-prompt.md](references/modelos-de-prompt.md): prompts testados (catálogo infantil, pintura em papel, produto, macro)
 - [codex-e-api.md](references/codex-e-api.md): modelos, tamanhos, parâmetros, edits, Codex
 - [revisao-e-correcao.md](references/revisao-e-correcao.md): checklist e prompts de correção
+- [regerar-serie.md](references/regerar-serie.md): refazer catálogo ou série existente (roupa fiel, rosto novo, logo separado, PDF)
 - [molde-entrega.md](references/molde-entrega.md): formato do arquivo de entrega
 - [fontes.md](references/fontes.md): de onde vieram as boas práticas

@@ -29,3 +29,7 @@ Consultadas em 16/11/2026.
 7. Itere uma mudança por vez e repita as restrições; "same style as before" não garante.
 8. Série: descrição fixa do personagem repetida em todo prompt + imagem aprovada como entrada.
 9. Qualidade mais alta não garante resultado melhor; compare na sua carga.
+
+## Prática própria
+
+- Regeração de um catálogo infantil de 48 páginas pelo Codex (`codex exec` em lote), 17/11/2026: origem de regerar-serie.md, dos gotchas de lote em codex-e-api.md e dos exemplos E e F em modelos-de-prompt.md.

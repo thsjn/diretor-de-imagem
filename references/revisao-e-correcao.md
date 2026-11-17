@@ -12,6 +12,13 @@
 - [ ] Pele com tom fiel?
 - [ ] Série consistente (mesmo fundo, luz, paleta das outras tomadas)?
 - [ ] Criança: pose e roupa adequadas à idade?
+- [ ] Cabeça proporcional ao corpo? Pele sem padrão quadriculado ou de pixel? Dentes como o cliente quer?
+- [ ] Rosto novo claramente diferente do original (quando a troca foi pedida)?
+- [ ] Foto de costas: cabeça no máximo de perfil, nunca de frente com corpo de costas?
+- [ ] Comprimento da peça igual ao real (vestido não encurtou)?
+- [ ] Página dependente (close, costas) não copiou pose e enquadramento da foto principal?
+- [ ] Logo: grafia letra por letra, recorte limpo sobre fundo quadriculado, sem halo, sem cobrir o produto?
+- [ ] Série: ângulos variados quando a série pede variação?
 
 Uma folha de contato acelera a revisão de série grande (todas as imagens lado a lado num JPG).
 
@@ -31,6 +38,13 @@ Mande a imagem gerada como `Image 1: edit target` (e a foto do produto como `Ima
 | Tudo igual e simétrico | `Make every <element> slightly different in shape, size and angle, as if made one by one by hand.` |
 | Pele de plástico | `Keep identity identical. Restore natural skin texture with fine pores, no retouching.` |
 | Cor lavada ou estourada | `Keep everything identical. Restore true-to-life colors: <cor com hex>, natural white balance.` |
+| Rosto parecido com o original | Não corrija por edit: reescreva o modelo com `COMPLETELY DIFFERENT ... must clearly NOT resemble`, troque cor de cabelo ou fenótipo e gere de novo da original. |
+| Rosto de frente em foto de costas | `The back faces the camera; the head turns over the shoulder no more than profile. Keep the garment identical.` |
+| Vestido encurtou | Volte ao corte da original: `same tight crop as Image 1, the hem continues out of the bottom edge`, e diga o comprimento real (`knee-length, never mid-thigh`). |
+| Close virou cópia da foto principal | Troque a referência de identidade pelo recorte só do rosto e diga que pose e enquadramento vêm da Image 1. |
+| Supersaturado | `Natural true-to-life color, moderate saturation like a real e-commerce photo, NOT oversaturated, NOT HDR, no neon, no glow.` |
+| Logo deformado ou sumiu | Tire o logo do prompt da página (`remove the title, fill with background`) e componha depois a partir de PNG transparente. |
+| Série toda no mesmo ângulo | Reescreva cada prompt com direção de cena própria e `Do NOT copy this photo's camera angle or composition`. |
 | Fundo com tom errado | `Change only the backdrop color to <cor (#hex)>, evenly lit. Keep the subject identical.` |
 
 ## Deriva

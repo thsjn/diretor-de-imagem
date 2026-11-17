@@ -109,3 +109,47 @@ Change only the dress print and colors so they match Image 2 exactly: same flowe
 Keep the child's face, hair, pose, the set, the hanging stars, the lighting and the lens blur identical.
 No text, no logos.
 ```
+
+## Exemplo E: regerar foto de catálogo trocando a criança (edit, testado no Codex)
+
+Base: a foto antiga da página. Referência: a arte plana da estampa. Saiu com roupa idêntica, rosto novo e cor natural.
+
+```
+Professional children's fashion catalog photograph, Christmas collection, front view catalog shot. Photographic edit of a real studio photo. The clothing is the hero and must stay identical.
+
+INPUT IMAGES:
+Image 1 (<original photo>): EDIT BASE. Keep its exact pose, body position, hands, framing, crop, camera angle, set, hanging stars and the exact cut of every garment.
+Image 2 (<print artwork>): flat artwork of the fabric print. Use it ONLY as the source of truth for print motifs, scale and colors. Ignore the paint palette, the hand, the brush, the paper and the logo in it.
+
+MODEL:
+Replace the child in Image 1 with a COMPLETELY DIFFERENT child: <age, skin, face shape, eyes, hair in a DIFFERENT color than the original, accessories>. The new face must clearly NOT resemble the child in Image 1: different face shape, eyes, nose, eyebrows, lips, jaw and cheekbones. Only the body pose, head turn, hairstyle type and accessories are kept from Image 1. Real child with natural child body proportions (head size proportional to the body), natural skin texture with fine pores and soft peach fuzz, real flyaway hairs, no makeup look, no plastic or airbrushed skin, no grid or pixel pattern artifacts, realistic hands with correct fingers.
+
+WARDROBE (must be 100% identical to Image 1 in cut, length, ruffles, straps, neckline, bows and seams, and identical to the print artwork in motifs and colors):
+- <garment>: <color with hex range, neckline, sleeves, hem border print, back details>
+Real woven cotton: visible weave, soft natural wrinkles, gathering at the waist seam. Print sits on the fabric and follows every fold. Do not invent, simplify, recolor or move print motifs.
+
+SET AND CHRISTMAS MOOD:
+Same seamless studio backdrop and hanging stars as Image 1. Add only a few very soft warm golden fairy-light bokeh orbs far behind the child, out of focus, never touching the child or the garment.
+
+CAMERA: Full-frame camera, 85mm lens at f/2.8, ISO 100, 1/250s. Face and garment tack sharp; backdrop stars in creamy bokeh.
+LIGHT: Large soft octabox key high at 45 degrees camera left, white bounce fill right, gentle hair rim, soft contact shadow, catchlights.
+COLOR AND FINISH: Natural true-to-life color, moderate saturation exactly like a real e-commerce photo, NOT oversaturated, NOT HDR, no neon, no glow, no sharpening halos. Fine natural film grain.
+FORMAT: vertical A4 portrait (1:1.414), same framing and crop as Image 1.
+
+STRICT: Remove ALL text, letters, numbers, prices and captions from Image 1 and fill those areas with clean backdrop. No logos, no watermark. GARMENT LENGTH: same as the real garment (knee-length dresses stay knee-length), never shortened. Keep everything not mentioned identical to Image 1.
+```
+
+Página dependente (costas, close, dupla): acrescente `Image 3 (<face crop of the approved model>): FACE CLOSE-UP of the new model. Use it ONLY for identity. Do not take pose, framing or clothes from it.` Para costas, some a regra de anatomia de regerar-serie.md.
+
+## Exemplo F: logo para recorte
+
+```
+Logo lettering recreation for compositing. Graphic asset, not a photo.
+Image 1 (<crop of the original logo>): exact logo to recreate. Ignore its background and any props around it.
+LOGO: <each line of text, size, alignment, letter style, color of each letter>. Spelling must be exact: <text with accents>.
+BACKGROUND: perfectly flat solid <color very different from the letters, ideally the page background> (#hex) everywhere, no texture, no gradient, no vignette, no shadow, no glow, nothing else.
+FORMAT: horizontal 3:1 banner, logo centered with a small even margin.
+STRICT: no extra elements, no other text, no frame.
+```
+
+Versão colorida de um logo já aprovado: use o aprovado como base e peça `CHANGE ONLY <the word>: fill each letter with ...`.

@@ -18,6 +18,7 @@ Imagem chapada é quando parece vetor colado: cor uniforme, borda perfeita, nada
 - Guache: `opaque gouache, raised pigment ridges along the edges, visible brush marks, slight asymmetry, some areas translucent showing the layer beneath`.
 - Em processo: `freshly painted area still wet with a glossy sheen, darker than the dry areas`.
 - Cada elemento único: `no two flowers identical, painted one by one by hand`.
+- Prancha de estampa (a estampa da roupa mostrada como pintura): descreva os motivos, posições e cores da estampa original um a um no prompt e use a arte como referência de conteúdo, não como base de composição. Borda branca do papel pintada à mão com pequenos vazamentos. Luz de janela baixa e rasante, senão o papel sai liso. Deixe um canto livre na mesa para o logo da marca entrar depois.
 
 **Tecido**
 - `visible cotton weave`, `natural gathers and folds`, `finely stitched rolled hem`, `slight wrinkles from movement`, `fabric catching light on the folds`.
@@ -47,7 +48,10 @@ Imagem chapada é quando parece vetor colado: cor uniforme, borda perfeita, nada
 | Pele de plástico | `real skin texture, fine pores, no retouching` |
 | Luz sem direção | Posicione a luz principal e diga onde cai a sombra |
 | Fundo genérico desfocado | Descreva o cenário real e como ele se dissolve |
-| Cor saturada demais | `natural color balance`, `true-to-life colors` |
+| Cor saturada demais | `natural true-to-life color, moderate saturation like a real e-commerce photo, NOT oversaturated, NOT HDR, no neon, no glow` |
+| Rosto repetido ou "mesma cara" | Descreva traços diferentes E troque cor de cabelo ou fenótipo |
+| Cabeça grande demais | `natural child body proportions, head size proportional to the body` |
+| Pele com padrão quadriculado | `clean natural skin rendering without grid, checker, crosshatch or pixel pattern artifacts` |
 | Objetos flutuando | `soft contact shadows grounding every object` |
 | Mãos estranhas | `realistic hands with five natural fingers in a relaxed pose` |
 | Excesso de polimento | `editorial candid feel, avoid studio polish` (quando não for catálogo) |

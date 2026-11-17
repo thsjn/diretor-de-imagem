@@ -10,6 +10,30 @@ Conferido em 16/11/2026 nos guias oficiais da OpenAI. Modelos mudam rápido: se 
 - Imagem local para editar ou usar de referência: carregue com `view_image` primeiro.
 - Uma chamada por tomada. `n` é para variações do mesmo prompt, não para tomadas diferentes.
 - CLI de reserva (`scripts/image_gen.py`, subcomandos `generate`, `edit`, `generate-batch`) só se a pessoa pedir; usa `gpt-image-2` e exige `OPENAI_API_KEY`.
+- `image_gen` não entrega fundo transparente. Para logo ou recorte: gere sobre cor lisa e recorte por distância de cor (ver regerar-serie.md, seção 6).
+
+### Lote pelo terminal (`codex exec`)
+
+Para série grande, rode um script que chama o Codex uma vez por tomada, em série:
+
+```bash
+timeout 900 codex exec -c approval_policy=never --skip-git-repo-check \
+  -C "<pasta do trabalho>" -s workspace-write "$INSTRUCAO" < /dev/null > "logs/$n.log" 2>&1
+sid="$(grep -m1 -oE 'session id: [0-9a-f-]+' "logs/$n.log" | cut -d' ' -f3)"
+[ -n "$sid" ] && cp "$(ls -t ~/.codex/generated_images/$sid/*.png | head -1)" "saida/$n.png"
+```
+
+Instrução que funcionou: "Tarefa única, sem perguntas. Use a ferramenta nativa image_gen. 1. Abra com view_image, nesta ordem, cada arquivo listado em INPUT IMAGES (caminhos absolutos); se faltar algum, pare. 2. Gere UMA imagem com o prompt abaixo, palavra por palavra, com a Image 1 como alvo de edição. 3. Não copie nem altere arquivo nenhum." seguida do prompt.
+
+Gotchas:
+- **`< /dev/null` é obrigatório.** Sem ele o `codex exec` pode ficar lendo stdin e não gerar nada.
+- **Não peça ao Codex para copiar a imagem:** ele trava pedindo permissão. O script copia.
+- **Copie pela pasta da sessão** (`generated_images/<session id>/`), nunca "o PNG mais novo da pasta inteira": se a chamada falhar ou houver duas filas, vem imagem de outro trabalho. Sem session id, marque falha.
+- **Uma fila por vez.** Duas em paralelo dobram memória; um lote já foi encerrado por falta de memória da máquina.
+- **Ao parar um lote**, mate o loop do shell e os `codex.exe` filhos e confira com `ps` que nada sobrou. Parar só a tarefa deixa o loop vivo gerando e copiando por cima.
+- Cada imagem leva ~1,5 min. Teste 1 tomada antes do lote e revise a primeira leva antes de seguir.
+- Arquivo do script com acento: grave em UTF-8; instrução em pt-BR funciona.
+
 - Para gerar pelo Codex, chame junto a skill `imagegen` e passe os prompts desta skill no esquema rotulado (ver estrutura-do-prompt.md).
 
 ## API da OpenAI
